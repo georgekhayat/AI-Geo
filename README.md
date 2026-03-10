@@ -50,6 +50,16 @@ python -m pytest test_algorithms.py -v
 No external dependencies are required – the code uses only the Python
 standard library (`collections`, `heapq`, `time`, `tracemalloc`).
 
+### Generate the PDF Report
+
+```bash
+pip install -r requirements.txt   # one-time: installs fpdf2
+python generate_report.py         # creates report.pdf
+```
+
+A two-page PDF summarising the algorithms, performance comparison, and key
+findings will be saved as `report.pdf` in the project root.
+
 ---
 
 ## Sample Output
@@ -88,4 +98,6 @@ Peak memory (KB)    35442.39      6978.59         28781.59
 | `astar_8puzzle.py` | A\* for the 8-puzzle (Manhattan & misplaced heuristics) |
 | `compare.py` | Comparison helpers (BFS vs A\* on the 8-puzzle) |
 | `main.py` | Demo entry point |
+| `generate_report.py` | Generates a two-page PDF report (`report.pdf`) |
+| `requirements.txt` | Python dependencies for PDF generation |
 | `test_algorithms.py` | Pytest test suite (28 tests) |
