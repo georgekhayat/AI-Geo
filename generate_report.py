@@ -14,7 +14,19 @@ from fpdf.enums import XPos, YPos
 
 
 def _build_report(path: str = "report.pdf") -> str:
-    """Create the PDF report and return the output file path."""
+    """Create the PDF report and return the output file path.
+
+    Parameters
+    ----------
+    path : str
+        Destination file path for the generated PDF.  Defaults to
+        ``report.pdf`` in the current working directory.
+
+    Returns
+    -------
+    str
+        The *path* that was written to.
+    """
 
     pdf = FPDF(orientation="P", unit="mm", format="A4")
     pdf.set_auto_page_break(auto=True, margin=15)
@@ -88,7 +100,7 @@ def _build_report(path: str = "report.pdf") -> str:
         pdf.cell(col_w[i], 8, h, border=1, fill=True, align="C")
     pdf.ln()
 
-    # Table data
+    # Table data – representative values from sample runs (see main.py).
     data = [
         ("Easy",   [("Expanded",  "3",       "3",       "3",       "2"),
                     ("Time (ms)", "~0.01",   "~0.01",   "~0.01",   ""),
